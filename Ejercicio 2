@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Main01 {
+        public static char caracterEn(String cadena, int posicion) throws Exception {
+
+            if (posicion >= 0 && posicion < cadena.length()) {
+                return cadena.charAt(posicion);
+            } else {
+                throw new Exception("La posición está fuera del rango");
+            }
+        }
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);// Objeto Scanner
+
+            System.out.print("Ingrese una cadena de caracteres: ");
+            String lectTeclado = scanner.nextLine(); //Lectura
+
+            try {
+                char caracter = caracterEn(lectTeclado, 7);
+                System.out.println("El caracter en la posición 7 es: " + caracter);
+
+            } catch (Exception e) {
+                System.out.println("La posición recuperada no existe.");
+            }
+
+            scanner.close();
+        }
+    }// end main
