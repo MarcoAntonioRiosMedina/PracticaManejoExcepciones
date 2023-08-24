@@ -1,0 +1,25 @@
+public class ExceptionPrueba {
+    public static char caracterEn(String cadena, int posicion) throws Exception {
+
+        int longitud = cadena.length();
+
+        if (posicion >= 0 && posicion < longitud) {
+            return cadena.charAt(posicion);
+        } else {
+            throw new Exception("La posición está fuera del rango");// EXCEPTION por si no se cumplen los requisitos
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            String cadena = "ClaseDesarollo"; // Palabra que es contada
+            int posicion = 8; // posición de la cadena
+            char resultado = caracterEn(cadena, posicion);
+
+            System.out.println("El caracter en la posición " + posicion + " es: " + resultado);
+        } catch (Exception e) {
+
+            System.out.println("Ocurrió un error: " + e.getMessage());
+        }
+    }
+}// end main
