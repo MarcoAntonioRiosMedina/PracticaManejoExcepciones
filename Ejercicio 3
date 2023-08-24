@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class NumeroNegativoExcepcion extends Exception {
+    public NumeroNegativoExcepcion(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    private String mensaje;
+
+    @Override
+    public String getMessage() {
+        return mensaje;
+    }
+}
+
+public class Negativo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Objeto Scanner
+
+        try {
+            System.out.print("Ingrese un valor numérico: ");
+            double valor = scanner.nextDouble(); //Utiliza el double para los decimales
+
+            if (valor < 0) {
+                throw new NumeroNegativoExcepcion("Error....... El número es negativo.");
+            } else {
+                double raizCuadrada = Math.sqrt(valor);
+                System.out.println("La raíz cuadrada de " + valor + " es " + raizCuadrada);
+
+            }
+        } catch (NumeroNegativoExcepcion e) {
+
+            System.out.println("Excepción que fue capturada: " + e.getMessage());
+        } catch (Exception e) {
+
+            System.out.println("Error inesperado: " + e.getMessage());
+        } finally {
+
+            scanner.close(); //Cierra Scanner
+        }
+    }
+} //end Main
